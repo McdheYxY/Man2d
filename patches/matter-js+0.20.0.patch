@@ -1,0 +1,14 @@
+diff --git a/node_modules/matter-js/build/matter.js b/node_modules/matter-js/build/matter.js
+index aead184..fe81f04 100644
+--- a/node_modules/matter-js/build/matter.js
++++ b/node_modules/matter-js/build/matter.js
+@@ -9479,7 +9479,8 @@ var Mouse = __webpack_require__(14);
+                 continue;
+ 
+             // handle compound parts
+-            for (k = body.parts.length > 1 ? 1 : 0; k < body.parts.length; k++) {
++            const parts = body.render.sprite.single ? 1 : body.parts.length;
++            for (k = !body.render.sprite.single && body.parts.length > 1 ? 1 : 0; k < parts; k++) {
+                 part = body.parts[k];
+                 
+                 if (!part.render.visible)
