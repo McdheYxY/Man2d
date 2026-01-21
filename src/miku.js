@@ -46,7 +46,7 @@ var loadBody = async function (path, x, y, scale) {
           group: group,
         },
       },
-      false
+      false,
     );
     return v;
   });
@@ -67,77 +67,71 @@ var loadBody = async function (path, x, y, scale) {
 //   qian_fa = "QianFa.svg",
 //   tui_r = "TuiR.svg",
 //   tui_l = "TuiL.svg";
+import nian_url from "../public/Nian.svg";
+import qian_fa_url from "../public/QianFa.svg";
+import shen_ti_url from "../public/ShenTi.svg";
+import lin_zi_url from "../public/LinZi.svg";
+import lin_dai_url from "../public/LinDai.svg";
+import ce_fa_l_url from "../public/CeFaL.svg";
+import ce_fa_r_url from "../public/CeFaR.svg";
+import tou_shi_l_url from "../public/TouShiL.svg";
+import tou_shi_r_url from "../public/TouShiR.svg";
+import shou_bi_l_url from "../public/ShouBiL.svg";
+import shou_bi_r_url from "../public/ShouBiR.svg";
+import qun_zi_url from "../public/Qunzi.svg";
+import tui_l_url from "../public/TuiL.svg";
+import tui_r_url from "../public/TuiR.svg";
+import bei_fa_url from "../public/BeiFa.svg";
 
-export default async function (x, y, scale,engine, options) {
-  var nian = await loadBody("/Nian.svg", x, y - 50 * scale, scale);
-  var shen_ti = await loadBody("/ShenTi.svg", x, y, scale);
-  var qian_fa = await loadBody("QianFa.svg", x, y, scale);
-  var lin_zi = await loadBody("LinZi.svg", x, y - 4.5 * scale, scale);
+export default async function (x, y, scale, engine, options) {
+  var nian = await loadBody(nian_url, x, y - 50 * scale, scale);
+  var shen_ti = await loadBody(shen_ti_url, x, y, scale);
+  var qian_fa = await loadBody(qian_fa_url, x, y, scale);
+  var lin_zi = await loadBody(lin_zi_url, x, y - 4.5 * scale, scale);
 
-  var lin_dai = await loadBody("LinDai.svg", x, y + 36 * scale, scale);
-  // Events.on(engine,"beforeUpdate", function (event) {
-  //   lin_dai.angle =
-  //     lin_dai.angle > 0
-  //       ? Math.min(lin_dai.angle, 1)
-  //       : Math.max(lin_dai.angle, -1);
-  // });
+  var lin_dai = await loadBody(lin_dai_url, x, y + 36 * scale, scale);
 
   var ce_fa_l = await loadBody(
-    "/CeFaL.svg",
+    ce_fa_l_url,
     x - 35 * scale,
     y + 35 * scale,
-    scale
+    scale,
   );
   var ce_fa_r = await loadBody(
-    "/CeFaR.svg",
+    ce_fa_r_url,
     x + 35 * scale,
     y + 35 * scale,
-    scale
+    scale,
   );
   var tou_shi_l = await loadBody(
-    "TouShiL.svg",
+    tou_shi_l_url,
     x - 27 * scale,
     y - 50 * scale,
-    scale
+    scale,
   );
   var tou_shi_r = await loadBody(
-    "TouShiR.svg",
+    tou_shi_r_url,
     x + 27 * scale,
     y - 50 * scale,
-    scale
+    scale,
   );
   var shou_bi_l = await loadBody(
-    "ShouBiL.svg",
+    shou_bi_l_url,
     x - 19 * scale,
     y + 51 * scale,
-    scale
+    scale,
   );
   var shou_bi_r = await loadBody(
-    "ShouBiR.svg",
+    shou_bi_r_url,
     x + 19 * scale,
     y + 51 * scale,
-    scale
+    scale,
   );
 
-  var qun_zi = await loadBody("Qunzi.svg", x, y + 78 * scale, scale);
-  var tui_l = await loadBody(
-    "TuiL.svg",
-    x - 11 * scale,
-    y + 142 * scale,
-    scale
-  );
-  var tui_r = await loadBody(
-    "TuiR.svg",
-    x + 11 * scale,
-    y + 142 * scale,
-    scale
-  );
-  var bei_fa = await loadBody(
-    "BeiFa.svg",
-    x - 2 * scale,
-    y - 15 * scale,
-    scale
-  );
+  var qun_zi = await loadBody(qun_zi_url, x, y + 78 * scale, scale);
+  var tui_l = await loadBody(tui_l_url, x - 11 * scale, y + 142 * scale, scale);
+  var tui_r = await loadBody(tui_r_url, x + 11 * scale, y + 142 * scale, scale);
+  var bei_fa = await loadBody(bei_fa_url, x - 2 * scale, y - 15 * scale, scale);
 
   var shenTiToNian = Constraint.create({
     bodyA: nian,
